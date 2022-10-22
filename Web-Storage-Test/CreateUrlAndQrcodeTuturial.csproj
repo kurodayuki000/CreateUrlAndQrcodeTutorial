@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Web_Storage_Test</RootNamespace>
+    <AssemblyName>Web-Storage-Test</AssemblyName>
   </PropertyGroup>
 
 </Project>

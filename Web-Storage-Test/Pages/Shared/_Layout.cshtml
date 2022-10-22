@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Web_Storage_Test</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Web_Storage_Test.styles.css" asp-append-version="true" />
+    @*<link rel="stylesheet" href="~/Web_Storage_Test.styles.css" asp-append-version="true" />*@
 </head>
 <body>
     <header>
@@ -35,17 +35,36 @@
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - Web_Storage_Test - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
-
+    <script src="_framework/blazor.server.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/qrcode.min.js"></script>
+    <script>
+        const urlInput = document.getElementById("url-input");
+        const qrCodeContainer = document.getElementById("qr-code-container");
 
+        @*Blazorで呼び出すメソッド(CreateUrlAndQrcode)*@
+        window.CreateUrlAndQrcode = (url) => {
+            @*inputの中身を書き換え*@
+            urlInput.value = url;
+
+            @* もし既にQRコードが存在していれば削除 *@
+            while (qrCodeContainer.firstChild) {
+                qrCodeContainer.removeChild(qrCodeContainer.firstChild);
+            }
+
+            @* QRコード生成 *@
+            var qrcode = new QRCode(qrCodeContainer, {
+                text: url,
+                width: 150,
+                height: 150,
+                colorDark: "#000000",
+                colorLight: "#ffffff"
+            });
+        }
+    </script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

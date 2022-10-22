@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 25.0.1703.6
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web-Storage-Test", "Web-Storage-Test\Web-Storage-Test.csproj", "{18DFE706-82D3-448C-86DA-A0DED91089CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateUrlAndQrcodeTuturial", "Web-Storage-Test\CreateUrlAndQrcodeTuturial.csproj", "{18DFE706-82D3-448C-86DA-A0DED91089CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

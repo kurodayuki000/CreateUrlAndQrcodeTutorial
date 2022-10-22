@@ -1,11 +1,34 @@
 ﻿@page
 @model IndexModel
+@using Web_Storage_Test.Pages.Shared
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<base href="~/" />
+<component type="typeof(Button)" render-mode="ServerPrerendered" />
 
+
+@*仮のコンテンツ*@
+<div class="d-flex align-items-center justify-content-center fw-bold fs-5 mt-5" style="height: 70vh; background-color: pink;">仮のコンテンツ</div>
+
+
+@*モーダル*@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input id="url-input" class="d-block w-100 py-2 mb-4" type="text" value="" readonly>
+                @*QRcode生成コンテナ*@
+                <div id="qr-code-container" class="d-flex align-items-center justify-content-center"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
